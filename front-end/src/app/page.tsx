@@ -5,6 +5,8 @@ import { BACKEND_ENDPOINT } from "@/constants/constant";
 import AnchorTemporaryDrawer from "./_components/drawer";
 import { Header } from "./_components/header";
 
+import { Breakfast } from "./_components/breakfast";
+
 export default function Home() {
   const fetchData = async () => {
     try {
@@ -19,5 +21,10 @@ export default function Home() {
     fetchData();
   }, []);
 
-  return <Header />;
+  return (
+    <div>
+      <Header />
+      <Breakfast />
+    </div>
+  );
 }
