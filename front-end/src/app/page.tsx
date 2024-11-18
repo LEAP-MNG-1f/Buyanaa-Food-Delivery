@@ -7,6 +7,7 @@ import { ResponsiveAppBar } from "./_components/header";
 
 import { Breakfast } from "./_components/breakfast";
 import { HeroHomePage } from "./_components/heroHomePage";
+import { DeliveryCardComponent } from "./_components/deliveryCardComponent";
 
 export default function Home() {
   const fetchData = async () => {
@@ -26,6 +27,7 @@ export default function Home() {
     <div>
       <ResponsiveAppBar />
       <HeroHomePage />
+      <DeliveryCardComponent />
       <Breakfast />
     </div>
   );
