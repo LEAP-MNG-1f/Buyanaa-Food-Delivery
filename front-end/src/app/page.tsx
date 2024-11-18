@@ -3,9 +3,10 @@ import { useEffect } from "react";
 
 import { BACKEND_ENDPOINT } from "@/constants/constant";
 import AnchorTemporaryDrawer from "./_components/drawer";
-import { Header } from "./_components/header";
+import { ResponsiveAppBar } from "./_components/header";
 
 import { Breakfast } from "./_components/breakfast";
+import { HeroHomePage } from "./_components/heroHomePage";
 
 export default function Home() {
   const fetchData = async () => {
@@ -23,7 +24,8 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
+      <ResponsiveAppBar />
+      <HeroHomePage />
       <Breakfast />
     </div>
   );
