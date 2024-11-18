@@ -1,5 +1,3 @@
-import { FoodCard } from "./foodCard";
-
 let breakfasts = [
   { img: "./ugluuniihool.png", title: "Өглөөний хоол", price: 16800 },
   { img: "./fruityogurt.png", title: "Өглөөний хоол", price: 16800 },
@@ -10,14 +8,14 @@ let breakfasts = [
 export const Breakfast = () => {
   return (
     <div>
-      {breakfasts.map((breakfast, index) => (
-        <FoodCard
-          key={index}
-          img={breakfast.img}
-          title={breakfast.title}
-          price={breakfast.price}
-        />
-      ))}
+      {/* {breakfasts.map((breakfast, index) => (
+        // <FoodCar
+        //   key={index}
+        //   img={breakfast.img}
+        //   title={breakfast.title}
+        //   price={breakfast.price}
+        // />
+      ))} */}
     </div>
   );
 };

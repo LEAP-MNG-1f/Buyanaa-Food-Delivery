@@ -1,29 +1,31 @@
 import { DeliveryCardIcon1 } from "../svg/deliveryCardIcon_1";
+import { DeliveryCardIcon2 } from "../svg/deliveryCardIcon_2";
+import { DeliveryCardIcon3 } from "../svg/deliveryCardIcon_3";
 import DeliveryCard, { DeliveryCardType } from "./deliveryCard";
 
 export const DeliveryCardComponent = () => {
   const deliveryData: DeliveryCardType[] = [
     {
       _id: "1",
-      image: "<DeliveryCardIcon1 />",
+      image: DeliveryCardIcon1,
       description: "Хүргэлтийн төлөв хянах",
       text: "Захиалга бэлтгэлийн явцыг хянах",
     },
     {
       _id: "2",
-      image: "./deliveryCardIcon_2.tsx",
+      image: DeliveryCardIcon2,
       description: "Шуурхай хүргэлт",
       text: "Захиалга бэлтгэлийн явцыг хянах",
     },
     {
       _id: "3",
-      image: "./deliveryCardIcon_3.tsx",
+      image: DeliveryCardIcon3,
       description: "Эрүүл, баталгаат орц",
       text: "Захиалга бэлтгэлийн явцыг хянах",
     },
     {
       _id: "4",
-      image: "./deliveryCardIcon_1.tsx",
+      image: DeliveryCardIcon1,
       description: "Хоолны өргөн сонголт",
       text: "Захиалга бэлтгэлийн явцыг хянах",
     },
@@ -31,7 +33,7 @@ export const DeliveryCardComponent = () => {
 
   return (
     <div className=" h-[500px] flex items-center justify-center">
-      <div className="w-[1200px] border">
+      <div className="w-[1200px]">
         <DeliveryCard cards={deliveryData} />
       </div>
     </div>
