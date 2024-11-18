@@ -2,11 +2,10 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { DeliveryCardIcon1 } from "../svg/deliveryCardIcon_1";
 
 export type DeliveryCardType = {
   _id: string;
-  image: ;
+  image: React.ComponentType;
   description: string;
   text: string;
 };
@@ -17,12 +16,11 @@ type CardListProps = {
 
 export default function DeliveryCard(props: CardListProps) {
   return (
-    <div>
-      {" "}
+    <div className="flex justify-between">
       {props.cards.map((card) => {
+        const IconComponent = card.image;
         return (
-          <div>
-            {" "}
+          <div key={card._id}>
             <Card sx={{ width: 265, height: 155 }}>
               <CardContent
                 sx={{
@@ -33,7 +31,7 @@ export default function DeliveryCard(props: CardListProps) {
                 }}
               >
                 <div className="p-[15px]">
-                  {card.image}
+                  <IconComponent />
                   {/* <DeliveryCardIcon1 /> */}
                 </div>
                 <div className="flex flex-col gap-1">
