@@ -2,10 +2,11 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import { DeliveryCardIcon1 } from "../svg/deliveryCardIcon_1";
 
 export type DeliveryCardType = {
   _id: string;
-  image: React.ComponentType;
+  image: React.ElementType;
   description: string;
   text: string;
 };
@@ -18,9 +19,8 @@ export default function DeliveryCard(props: CardListProps) {
   return (
     <div className="flex justify-between">
       {props.cards.map((card) => {
-        const IconComponent = card.image;
         return (
-          <div key={card._id}>
+          <div>
             <Card sx={{ width: 265, height: 155 }}>
               <CardContent
                 sx={{
@@ -31,7 +31,11 @@ export default function DeliveryCard(props: CardListProps) {
                 }}
               >
                 <div className="p-[15px]">
-                  <IconComponent />
+                  {React.isValidElement(card.image) ? (
+                    card.image
+                  ) : (
+                    <card.image />
+                  )}
                   {/* <DeliveryCardIcon1 /> */}
                 </div>
                 <div className="flex flex-col gap-1">

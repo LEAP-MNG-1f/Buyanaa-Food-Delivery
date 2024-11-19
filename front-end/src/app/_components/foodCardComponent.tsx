@@ -68,7 +68,7 @@ export const FoodCardComponent = () => {
   ];
 
   return (
-    <div className=" h-[500px] flex items-center justify-center">
+    <div className=" h-full flex items-center flex-col gap-[80px]">
       <div className="w-[1200px]">
         <FoodCard foodCards={foodCardData} />
       </div>
