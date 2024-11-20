@@ -34,7 +34,7 @@ export default function FoodCard(props: FoodCardListProps) {
     <div className="flex flex-col gap-20 pb-[82px]">
       <div className="flex flex-col gap-6">
         <div className="flex justify-between">
-          <div className="flex py-4 items-center gap-1">
+          <div className="flex py-4 items-center gap-[6px]">
             <StarIcon />{" "}
             <Typography sx={{ fontWeight: 700, fontSize: 22 }}>
               Breakfast
@@ -64,14 +64,16 @@ export default function FoodCard(props: FoodCardListProps) {
                 </div>
 
                 <div className="pt-[14px]">
-                  <p>{foodCard.name}</p>
+                  <p className="text-lg font-semibold">{foodCard.name}</p>
                   <div className="flex gap-4">
                     {foodCard.discount && (
                       <p className="text-[var(--green)]">
                         {foodCard.discount}% OFF
                       </p>
                     )}
-                    <p>{foodCard.price}</p>
+                    <p className="text-lg font-semibold text-[var(--green)]">
+                      {foodCard.price}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -81,7 +83,7 @@ export default function FoodCard(props: FoodCardListProps) {
       </div>
       <div className="flex flex-col gap-6">
         <div className="flex justify-between">
-          <div className="flex py-4 items-center gap-1">
+          <div className="flex py-4 items-center gap-[6px]">
             <StarIcon />{" "}
             <Typography sx={{ fontWeight: 700, fontSize: 22 }}>Soup</Typography>
           </div>
@@ -109,14 +111,16 @@ export default function FoodCard(props: FoodCardListProps) {
                 </div>
 
                 <div className="pt-[14px]">
-                  <p>{foodCard.name}</p>
+                  <p className="text-lg font-semibold">{foodCard.name}</p>
                   <div className="flex gap-4">
                     {foodCard.discount && (
                       <p className="text-[var(--green)]">
                         {foodCard.discount}% OFF
                       </p>
                     )}
-                    <p>{foodCard.price}</p>
+                    <p className="text-lg font-semibold text-[var(--green)]">
+                      {foodCard.price}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -126,7 +130,7 @@ export default function FoodCard(props: FoodCardListProps) {
       </div>
       <div className="flex flex-col gap-6">
         <div className="flex justify-between">
-          <div className="flex py-4 items-center gap-1">
+          <div className="flex py-4 items-center gap-[6px]">
             <StarIcon />{" "}
             <Typography sx={{ fontWeight: 700, fontSize: 22 }}>Main</Typography>
           </div>
@@ -154,14 +158,16 @@ export default function FoodCard(props: FoodCardListProps) {
                 </div>
 
                 <div className="pt-[14px]">
-                  <p>{foodCard.name}</p>
+                  <p className="text-lg font-semibold">{foodCard.name}</p>
                   <div className="flex gap-4">
                     {foodCard.discount && (
                       <p className="text-[var(--green)]">
                         {foodCard.discount}% OFF
                       </p>
                     )}
-                    <p>{foodCard.price}</p>
+                    <p className="text-lg font-semibold text-[var(--green)]">
+                      {foodCard.price}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -171,7 +177,7 @@ export default function FoodCard(props: FoodCardListProps) {
       </div>
       <div className="flex flex-col gap-6">
         <div className="flex justify-between">
-          <div className="flex py-4 items-center gap-1">
+          <div className="flex py-4 items-center gap-[6px]">
             <StarIcon />{" "}
             <Typography sx={{ fontWeight: 700, fontSize: 22 }}>
               Dessert
@@ -201,14 +207,16 @@ export default function FoodCard(props: FoodCardListProps) {
                 </div>
 
                 <div className="pt-[14px]">
-                  <p>{foodCard.name}</p>
+                  <p className="text-lg font-semibold">{foodCard.name}</p>
                   <div className="flex gap-4">
                     {foodCard.discount && (
                       <p className="text-[var(--green)]">
                         {foodCard.discount}% OFF
                       </p>
                     )}
-                    <p>{foodCard.price}</p>
+                    <p className="text-lg font-semibold text-[var(--green)]">
+                      {foodCard.price}
+                    </p>
                   </div>
                 </div>
               </div>

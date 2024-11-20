@@ -16,7 +16,7 @@ export const Footer = () => {
             <LogoIcon fill="#FFF" />
             Food Delivery
           </div>
-          <div className="flex justify-between w-full text-white underline underline-offset-4 font-[590px] text-base">
+          <div className="flex justify-between w-full text-white underline underline-offset-4 font-semibold text-base">
             <button>Нүүр</button>
 
             <button>Холбоо барих</button>
@@ -27,9 +27,15 @@ export const Footer = () => {
             <button>Нууцлалын бодлого</button>
           </div>
           <div className="flex gap-3 p-[5px] items-center">
-            <FacebookIcon />
-            <InstagramIcon />
-            <TwitterIcon />
+            <button>
+              <FacebookIcon />
+            </button>
+            <button>
+              <InstagramIcon />
+            </button>
+            <button>
+              <TwitterIcon />
+            </button>
           </div>
           <div className="w-full">
             <p className="border-b-[1px]"></p>

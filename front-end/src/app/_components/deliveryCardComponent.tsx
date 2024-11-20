@@ -32,7 +32,7 @@ export const DeliveryCardComponent = () => {
   ];
 
   return (
-    <div className=" h-[500px] flex items-center justify-center">
+    <div className=" h-[380px] flex items-center justify-center">
       <div className="w-[1200px]">
         <DeliveryCard cards={deliveryData} />
       </div>

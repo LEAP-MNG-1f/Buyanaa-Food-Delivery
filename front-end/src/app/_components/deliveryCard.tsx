@@ -21,7 +21,16 @@ export default function DeliveryCard(props: CardListProps) {
       {props.cards.map((card) => {
         return (
           <div key={card._id}>
-            <Card sx={{ width: 265, height: 155 }}>
+            <Card
+              sx={{
+                width: 265,
+                height: 155,
+                boxShadow: "4px 4px 12px 0px , rgba(0, 0, 0, 0.10)",
+                border: "1px solid",
+                borderColor: "#D6D8DB",
+                borderRadius: "16px",
+              }}
+            >
               <CardContent
                 sx={{
                   padding: 2,
