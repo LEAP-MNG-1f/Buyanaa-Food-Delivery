@@ -31,7 +31,7 @@ export default function FoodCard(props: FoodCardListProps) {
     : props.foodCards.slice(0, 4);
 
   return (
-    <div className="flex flex-col gap-20">
+    <div className="flex flex-col gap-20 pb-[82px]">
       <div className="flex flex-col gap-6">
         <div className="flex justify-between">
           <div className="flex py-4 items-center gap-1">

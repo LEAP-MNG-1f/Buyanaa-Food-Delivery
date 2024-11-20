@@ -20,7 +20,7 @@ export default function DeliveryCard(props: CardListProps) {
     <div className="flex justify-between">
       {props.cards.map((card) => {
         return (
-          <div>
+          <div key={card._id}>
             <Card sx={{ width: 265, height: 155 }}>
               <CardContent
                 sx={{
