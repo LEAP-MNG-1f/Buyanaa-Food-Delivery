@@ -13,7 +13,7 @@ import Link from "next/link";
 const pages = ["ХООЛНЫ ЦЭС", "ХҮРГЭЛТИЙН БҮС"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-export const ResponsiveAppBar = () => {
+export const Header = () => {
   return (
     <Container className="!bg-white !p-0">
       <Toolbar sx={{ boxSizing: "border-box" }}>
