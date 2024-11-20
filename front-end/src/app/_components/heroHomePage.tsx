@@ -6,7 +6,7 @@ export const HeroHomePage = () => {
       style={{ background: "url('./ingredients.png'), var(--green)" }}
       className=" h-[778px] w-full flex justify-center"
     >
-      <div className="flex justify-between items-center border border-black w-[1200px]">
+      <div className="flex justify-between items-center w-[1200px]">
         <div className="w-[384px]">
           <h1 className="text-[55px] font-semibold leading-[49px] w-13 text-white">
             Pinecone Food delivery
