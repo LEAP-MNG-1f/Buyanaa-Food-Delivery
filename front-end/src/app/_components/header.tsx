@@ -15,7 +15,7 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export const Header = () => {
   return (
-    <Container className="!bg-white !p-0">
+    <Container disableGutters>
       <Toolbar sx={{ boxSizing: "border-box" }}>
         <div className="pr-6 ">
           <LogoIcon />

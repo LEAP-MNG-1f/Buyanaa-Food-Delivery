@@ -1,6 +1,8 @@
 import express, { request, response } from "express";
 import cors from "cors";
 import { v2 as cloudinary } from "cloudinary";
+import connectDb from "./connectDB.js";
+
 const server = express();
 const PORT = 8000;
 server.use(cors());
@@ -22,8 +24,15 @@ server.post("/image-upload", async (request, response) => {
   }
 });
 
-server.get("/", (request, response) => {
-  response.json(["Hello", "Billy", "&", "Dashka"]);
+server.get("/", async (request, response) => {
+  const db = await connectDb();
+  let collection = db.collection("comments");
+  let results = await collection.find().limit(10).toArray();
+
+  response.json({
+    success: true,
+    data: results,
+  });
 });
 
 server.listen(PORT, () => {
