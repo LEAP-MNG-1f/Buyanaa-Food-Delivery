@@ -10,84 +10,120 @@ import { ShoppingBagIcon } from "../svg/ShoppingBagIcon";
 import { LogoIcon } from "../svg/LogoIcon";
 import Link from "next/link";
 
-const pages = ["ХООЛНЫ ЦЭС", "ХҮРГЭЛТИЙН БҮС"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
 export const Header = () => {
   return (
     <Container disableGutters>
-      <Toolbar sx={{ boxSizing: "border-box" }}>
-        <div className="pr-6 ">
-          <LogoIcon />
-        </div>
-        <Link href={"/"}>
-          <Typography
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "var(--green)",
-              textDecoration: "none",
-              paddingX: 2,
-              paddingY: 1,
-              boxSizing: "border-box",
-            }}
-          >
-            НҮҮР
-          </Typography>
-        </Link>
-
-        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-          {pages.map((page) => (
+      <Toolbar disableGutters>
+        <div className="flex justify-between min-w-[1200px]">
+          <div className="flex items-center">
+            <div className="pr-6 ">
+              <LogoIcon />
+            </div>
+            <Link href={"/"}>
+              <Typography
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontWeight: 700,
+                  fontSize: "14px",
+                  letterSpacing: ".3rem",
+                  color: "#000",
+                  textDecoration: "none",
+                  paddingX: 2,
+                  paddingY: 1,
+                  boxSizing: "border-box",
+                  "&:hover": {
+                    color: "var(--green)",
+                  },
+                  "&:focus": {
+                    color: "var(--green)",
+                  },
+                }}
+              >
+                НҮҮР
+              </Typography>
+            </Link>
+            <Link href={"/menu"}>
+              <Typography
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontWeight: 700,
+                  fontSize: "14px",
+                  letterSpacing: ".3rem",
+                  color: "#000",
+                  textDecoration: "none",
+                  paddingX: 2,
+                  paddingY: 1,
+                  boxSizing: "border-box",
+                  "&:hover": {
+                    color: "var(--green)",
+                  },
+                  "&:focus": {
+                    color: "var(--green)",
+                  },
+                }}
+              >
+                ХООЛНЫ ЦЭС
+              </Typography>
+            </Link>
+            <Link href={"/"}>
+              <Typography
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontWeight: 700,
+                  fontSize: "14px",
+                  letterSpacing: ".3rem",
+                  color: "#000",
+                  textDecoration: "none",
+                  paddingX: 2,
+                  paddingY: 1,
+                  boxSizing: "border-box",
+                  "&:hover": {
+                    color: "var(--green)",
+                  },
+                  "&:focus": {
+                    color: "var(--green)",
+                  },
+                }}
+              >
+                ХҮРГЭЛТИЙН БҮС
+              </Typography>
+            </Link>
+          </div>
+          <div className="flex gap-2">
             <Button
-              key={page}
               sx={{
-                my: 2,
+                color: "black",
                 fontWeight: 700,
                 fontSize: 14,
-                color: "black",
-                display: "block",
                 paddingX: 2,
                 paddingY: 1,
                 boxSizing: "border-box",
               }}
             >
-              {page}
+              <div className="flex gap-2 items-center">
+                <ShoppingBagIcon /> Сагс
+              </div>
             </Button>
-          ))}
-        </Box>
-        <div className="flex gap-2">
-          <Button
-            sx={{
-              color: "black",
-              fontWeight: 700,
-              fontSize: 14,
-              paddingX: 2,
-              paddingY: 1,
-              boxSizing: "border-box",
-            }}
-          >
-            <div className="flex gap-2 items-center">
-              <ShoppingBagIcon /> Сагс
-            </div>
-          </Button>
 
-          <Button
-            sx={{
-              color: "black",
-              fontWeight: 700,
-              fontSize: 14,
-              paddingX: 2,
-              paddingY: 1,
-              boxSizing: "border-box",
-            }}
-          >
-            <div className="flex gap-2 items-center">
-              <LogInIcon />
-              Нэвтрэх
-            </div>
-          </Button>
+            <Button
+              sx={{
+                color: "black",
+                fontWeight: 700,
+                fontSize: 14,
+                paddingX: 2,
+                paddingY: 1,
+                boxSizing: "border-box",
+              }}
+            >
+              <div className="flex gap-2 items-center">
+                <LogInIcon />
+                Нэвтрэх
+              </div>
+            </Button>
+          </div>
         </div>
       </Toolbar>
     </Container>
