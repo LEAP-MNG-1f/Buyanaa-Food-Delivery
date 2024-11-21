@@ -11,7 +11,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        {children}
+        <div className="flex flex-col items-center"> {children}</div>
+
         <Footer />
       </body>
     </html>
