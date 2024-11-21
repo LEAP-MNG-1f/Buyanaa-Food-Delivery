@@ -21,6 +21,10 @@ export default function CategoryButton() {
               color: "#FFF",
               backgroundColor: "var(--green)",
             },
+            "&:focus": {
+              color: "#FFF",
+              backgroundColor: "var(--green)",
+            },
           }}
         >
           Breakfast
@@ -37,6 +41,10 @@ export default function CategoryButton() {
             height: "43px",
             borderRadius: "8px",
             "&:hover": {
+              color: "#FFF",
+              backgroundColor: "var(--green)",
+            },
+            "&:focus": {
               color: "#FFF",
               backgroundColor: "var(--green)",
             },
@@ -59,6 +67,10 @@ export default function CategoryButton() {
               color: "#FFF",
               backgroundColor: "var(--green)",
             },
+            "&:focus": {
+              color: "#FFF",
+              backgroundColor: "var(--green)",
+            },
           }}
         >
           Main Course
@@ -75,6 +87,10 @@ export default function CategoryButton() {
             height: "43px",
             borderRadius: "8px",
             "&:hover": {
+              color: "#FFF",
+              backgroundColor: "var(--green)",
+            },
+            "&:focus": {
               color: "#FFF",
               backgroundColor: "var(--green)",
             },

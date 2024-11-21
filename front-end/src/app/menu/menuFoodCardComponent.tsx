@@ -1,7 +1,7 @@
-import FoodCard, { FoodCardType } from "./foodCard";
+import MenuFoodCard, { MenuFoodCardType } from "./menuFoodCard";
 
-export const FoodCardComponent = () => {
-  const foodCardData: FoodCardType[] = [
+export const MenuFoodCardComponent = () => {
+  const MenuFoodCardData: MenuFoodCardType[] = [
     {
       _id: "1",
       image: "./avocadoToast.png",
@@ -68,10 +68,10 @@ export const FoodCardComponent = () => {
   ];
 
   return (
-    <div className=" h-full flex items-center flex-col gap-[80px]">
-      <div className="w-[1200px] flex-wrap">
-        <FoodCard foodCards={foodCardData} />
-      </div>
+    <div className=" h-full w-full max-w-[1200px] flex items-center flex-wrap  py-[60px]">
+      {/* <div className=" flex flex-col flex-wrap"> */}
+      <MenuFoodCard menuFoodCards={MenuFoodCardData} />
+      {/* </div> */}
     </div>
   );
 };

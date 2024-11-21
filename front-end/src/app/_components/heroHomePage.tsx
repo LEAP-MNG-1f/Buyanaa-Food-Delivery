@@ -4,7 +4,7 @@ export const HeroHomePage = () => {
   return (
     <div
       style={{ background: "url('./ingredients.png'), var(--green)" }}
-      className=" h-[778px] w-full flex justify-center"
+      className=" h-[778px] !w-full flex justify-center"
     >
       <div className="flex justify-between items-center w-[1200px]">
         <div className="w-[384px]">
