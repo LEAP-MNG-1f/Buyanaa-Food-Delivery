@@ -6,6 +6,7 @@ import AnchorTemporaryDrawer from "./_components/drawer";
 import { HeroHomePage } from "./_components/heroHomePage";
 import { DeliveryCardComponent } from "./_components/deliveryCardComponent";
 import { FoodCardComponent } from "./_components/foodCardComponent";
+import CustomizedDialogs from "./_components/foodCardDialog";
 
 export default function Home() {
   const fetchData = async () => {
@@ -23,6 +24,7 @@ export default function Home() {
 
   return (
     <div>
+      <CustomizedDialogs />
       <HeroHomePage />
       <DeliveryCardComponent />
       <FoodCardComponent />
