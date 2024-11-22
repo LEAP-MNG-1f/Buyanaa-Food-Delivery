@@ -2,6 +2,7 @@ import express, { request, response } from "express";
 import cors from "cors";
 import { v2 as cloudinary } from "cloudinary";
 import connectDb from "./connectDB.js";
+import { ObjectId } from "mongodb";
 
 const server = express();
 const PORT = 8000;
@@ -32,6 +33,40 @@ server.get("/", async (request, response) => {
   response.json({
     success: true,
     data: results,
+  });
+});
+server.post("/create-user", async (req, response) => {
+  const db = await connectDb();
+
+  const collection = db.collection("product");
+  const result = await collection.insertOne({
+    name: "book",
+    owner: "Buyanaas",
+    price: "2000",
+  });
+
+  response.json({
+    succes: true,
+    data: result,
+  });
+});
+
+server.put("/update-user", async (req, response) => {
+  const db = await connectDb();
+
+  const collection = db.collection("product");
+  const result = await collection.updateOne(
+    {
+      _id: new ObjectId("67400388cf21593239ed3475"),
+    },
+    {
+      $set: { price: "8800", date: new Date() },
+    }
+  );
+
+  response.json({
+    succes: true,
+    data: result,
   });
 });
 

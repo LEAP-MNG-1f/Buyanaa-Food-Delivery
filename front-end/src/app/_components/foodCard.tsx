@@ -14,7 +14,7 @@ export type FoodCardType = {
   price: number;
 };
 
-type FoodCardListProps = {
+export type FoodCardListProps = {
   foodCards: FoodCardType[];
 };
 export default function FoodCard(props: FoodCardListProps) {

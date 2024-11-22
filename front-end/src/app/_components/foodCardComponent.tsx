@@ -1,4 +1,5 @@
 import FoodCard, { FoodCardType } from "./foodCard";
+import FoodCardDialog from "./foodCardDialog";
 
 export const FoodCardComponent = () => {
   const foodCardData: FoodCardType[] = [
@@ -70,7 +71,7 @@ export const FoodCardComponent = () => {
   return (
     <div className=" h-full flex items-center flex-col gap-[80px]">
       <div className="w-[1200px] flex-wrap">
-        <FoodCard foodCards={foodCardData} />
+        <FoodCardDialog foodCards={foodCardData} />
       </div>
     </div>
   );
