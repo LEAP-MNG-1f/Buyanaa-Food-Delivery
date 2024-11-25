@@ -18,7 +18,8 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     minHeight: "564px", // Minimum height
     height: "auto", // Allow auto height
     display: "flex",
-    flexDirection: "column", // Column direction to fit contents
+    flexDirection: "column",
+    borderRadius: "16px", // Column direction to fit contents
   },
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -70,7 +71,7 @@ export default function FoodCard({ foodCard }: { foodCard: FoodCardType }) {
       </Button>
       <BootstrapDialog onClose={handleClose} open={open}>
         <DialogContent>
-          <div className="min-w-[981px] h-[564px] flex justify-between">
+          <div className="max-w-[981px] max-h-[564px] flex justify-between p-4 rounded-[16px]">
             <div className="w-[500px] h-[500px]">
               <img
                 src={foodCard.image}
@@ -78,20 +79,20 @@ export default function FoodCard({ foodCard }: { foodCard: FoodCardType }) {
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
-            <div className="min-w-[384px]">
-              <IconButton
-                aria-label="close"
-                onClick={handleClose}
-                sx={(theme) => ({
-                  position: "absolute",
-                  right: 8,
-                  top: 8,
-                  color: theme.palette.grey[500],
-                })}
-              >
-                <CloseIcon />
-              </IconButton>
+            <div className="max-w-[384px] flex flex-col justify-center">
               <DialogActions>
+                <IconButton
+                  aria-label="close"
+                  onClick={handleClose}
+                  sx={(theme) => ({
+                    position: "absolute",
+                    right: 28,
+                    top: 28,
+                    color: theme.palette.grey[500],
+                  })}
+                >
+                  <CloseIcon />
+                </IconButton>
                 <div className="flex flex-col gap-8 justify-center">
                   <div className="flex flex-col gap-[2px]">
                     <p className="text-[28px] font-bold">{foodCard.name}</p>
@@ -110,7 +111,9 @@ export default function FoodCard({ foodCard }: { foodCard: FoodCardType }) {
                     <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
                       -
                     </button>
-                    <div className="w-full flex justify-center">1</div>
+                    <div className="w-full flex justify-center items-center">
+                      1
+                    </div>
                     <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
                       +
                     </button>

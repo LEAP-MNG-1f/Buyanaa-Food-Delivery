@@ -38,63 +38,80 @@ export default function ShoppingCartDrawer() {
           onClick={() => toggleDrawer(false)} // Close on click
           onKeyDown={() => toggleDrawer(false)} // Close on keyboard events
         >
-          <div className="p-[26px] w-[538px]">
-            <div className="flex items-center gap-[171px] pb-[30px]">
-              <LeftArrow />{" "}
-              <div className="text-lg font-semibold">Таны сагс</div>
-            </div>
-            <div className=" border-t-[1px] border-b-[1px] border-[#D6D8DB] py-6 flex">
-              <div className="flex p-4 gap-5">
-                <div className="w-[245px] h-[150px]">
-                  <img
-                    src={"/smoothieBowl.png"}
-                    alt=""
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                </div>
-                <div className="flex flex-col w-[245px] h-[150px] gap-2 justify-center">
-                  <div className="flex items-center gap-[60px]">
-                    <div className="flex flex-col gap-[2px]">
-                      <p className="text-[18px] font-semibold">Healthy Bowl</p>
-                      <p className="text-[18px] font-semibold text-[var(--green)]">
-                        ₮ 38800
+          <div className="p-[26px] w-[538px] flex flex-col justify-between h-screen">
+            <div className="">
+              <div className="flex items-center gap-[171px] pb-[30px]">
+                <LeftArrow />{" "}
+                <div className="text-lg font-semibold">Таны сагс</div>
+              </div>
+
+              <div className=" border-t-[1px] border-b-[1px] border-[#D6D8DB] py-6 flex">
+                <div className="flex p-4 gap-5">
+                  <div className="w-[245px] h-[150px]">
+                    <img
+                      src={"/smoothieBowl.png"}
+                      alt=""
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </div>
+                  <div className="flex flex-col w-[245px] h-[150px] gap-2 justify-center">
+                    <div className="flex gap-[60px]">
+                      <div className="flex flex-col gap-[2px]">
+                        <p className="text-[18px] font-semibold">
+                          Healthy Bowl
+                        </p>
+                        <p className="text-[18px] font-semibold text-[var(--green)]">
+                          ₮ 38800
+                        </p>
+                      </div>
+                      <button className="flex items-start mt-2">
+                        <CloseIcon />
+                      </button>
+                    </div>
+
+                    <div className="flex flex-col gap-3">
+                      <p className="text-sm font-normal text-[#767676]">
+                        Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын үр{" "}
                       </p>
                     </div>
-                    <CloseIcon />
-                  </div>
-
-                  <div className="flex flex-col gap-3">
-                    <p className="text-sm font-normal text-[#767676]">
-                      Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын үр{" "}
-                    </p>
-                  </div>
-                  <div className="flex gap-[8px] justify-start">
-                    <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
-                      -
-                    </button>
-                    <div className="flex items-center px-[18px]">1</div>
-                    <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
-                      +
-                    </button>
+                    <div className="flex gap-[8px] justify-start">
+                      <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
+                        -
+                      </button>
+                      <div className="flex items-center px-[18px]">1</div>
+                      <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-              {/* <Button
-                    autoFocus
-                    variant="contained"
-                    onClick={handleClose}
-                    sx={{
-                      backgroundColor: "var(--green)",
-                      fontSize: "14px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    Сагслах
-                  </Button> */}
+            </div>
+            <div className="min-h-[172px] border-t-[1px] border-[#D6D8DB] flex justify-between items-center">
+              <div className="">
+                <p className="text-lg font-normal text-[#5E6166]">
+                  Нийт төлөх дүн
+                </p>
+                <p className="text-lg font-bold text-[#121316]">34,800₮</p>
+              </div>
+              <Button
+                autoFocus
+                variant="contained"
+                onClick={() => toggleDrawer(false)}
+                sx={{
+                  width: "256px",
+                  height: "48px",
+                  backgroundColor: "var(--green)",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                }}
+              >
+                Захиалах
+              </Button>
             </div>
           </div>
         </Box>
