@@ -11,7 +11,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        <div className="flex flex-col "> {children}</div>
+        <div className="flex flex-col"> {children}</div>
 
         <Footer />
       </body>
