@@ -26,13 +26,13 @@ export const Footer = () => {
             <Link href={"/menu"}>
               <button>Хоолны цэс</button>
             </Link>
-            <Link href={""}>
+            <Link href={"/terms-and-conditions"}>
               <button>Үйлчилгээний нөхцөл</button>
             </Link>
             <Link href={"/delivery-area"}>
               <button>Хүргэлтийн бүс</button>
             </Link>
-            <Link href={""}>
+            <Link href={"/privacy-policy"}>
               <button>Нууцлалын бодлого</button>
             </Link>
           </div>
