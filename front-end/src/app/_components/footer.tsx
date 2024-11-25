@@ -17,25 +17,35 @@ export const Footer = () => {
             Food Delivery
           </div>
           <div className="flex justify-between w-full text-white underline underline-offset-4 font-semibold text-base">
-            <button>Нүүр</button>
-
-            <button>Холбоо барих</button>
-
-            <button>Хоолны цэс</button>
-            <button>Үйлчилгээний нөхцөл</button>
-            <button>Хүргэлтийн бүс</button>
-            <button>Нууцлалын бодлого</button>
+            <Link href={"/"}>
+              <button>Нүүр</button>
+            </Link>
+            <Link href={""}>
+              <button>Холбоо барих</button>
+            </Link>
+            <Link href={"/menu"}>
+              <button>Хоолны цэс</button>
+            </Link>
+            <Link href={""}>
+              <button>Үйлчилгээний нөхцөл</button>
+            </Link>
+            <Link href={"/delivery-area"}>
+              <button>Хүргэлтийн бүс</button>
+            </Link>
+            <Link href={""}>
+              <button>Нууцлалын бодлого</button>
+            </Link>
           </div>
           <div className="flex gap-3 p-[5px] items-center">
-            <button>
+            <Link href={""}>
               <FacebookIcon />
-            </button>
-            <button>
+            </Link>
+            <Link href={""}>
               <InstagramIcon />
-            </button>
-            <button>
+            </Link>
+            <Link href={""}>
               <TwitterIcon />
-            </button>
+            </Link>
           </div>
           <div className="w-full">
             <p className="border-b-[1px]"></p>

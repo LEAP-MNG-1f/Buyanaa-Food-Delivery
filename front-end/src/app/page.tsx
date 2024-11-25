@@ -5,8 +5,11 @@ import { BACKEND_ENDPOINT } from "@/constants/constant";
 import AnchorTemporaryDrawer from "./_components/drawer";
 import { HeroHomePage } from "./_components/heroHomePage";
 import { DeliveryCardComponent } from "./_components/deliveryCardComponent";
-import { FoodCardComponent } from "./_components/foodCardComponent";
-import CustomizedDialogs from "./_components/foodCardDialog";
+
+import {
+  FoodCardComponent,
+  foodCardData,
+} from "./_components/foodCardComponent";
 
 export default function Home() {
   const fetchData = async () => {
@@ -24,7 +27,7 @@ export default function Home() {
 
   return (
     <div>
-      <CustomizedDialogs />
+      {/* <CustomizedDialogs /> */}
       <HeroHomePage />
       <DeliveryCardComponent />
       <FoodCardComponent />

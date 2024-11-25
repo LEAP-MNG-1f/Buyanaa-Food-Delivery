@@ -1,11 +1,10 @@
-import { MenuFoodCardComponent } from "./menuFoodCardComponent";
-import CategoryButton from "./categoryButton";
+"use client";
+import { MenuCardComponent } from "./menuCardComponent";
 
 export default function Page() {
   return (
     <div className="py-8">
-      <CategoryButton />
-      <MenuFoodCardComponent />
+      <MenuCardComponent />
     </div>
   );
 }
