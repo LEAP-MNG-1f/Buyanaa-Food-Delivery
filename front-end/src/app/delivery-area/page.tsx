@@ -1,5 +1,6 @@
-import { dividerClasses } from "@mui/material";
 import { StarIcon } from "../svg/starIcon";
+import DeliveryCardA from "./deliveryCardA";
+import DeliveryCardB from "./deliveryCardB";
 
 export default function Page() {
   return (
@@ -14,9 +15,13 @@ export default function Page() {
             loading="lazy"
           ></iframe>
         </div>
-        <div className="flex gap-3 items-center ">
+        <div className="flex gap-3 items-center pt-12 pb-9 ">
           <StarIcon />
           <h1 className="text-[22px] font-bold">Хүргэлтийн бүс дэх хаягууд</h1>
+        </div>
+        <div className="flex justify-between">
+          <DeliveryCardA />
+          <DeliveryCardB />
         </div>
       </div>
     </div>
