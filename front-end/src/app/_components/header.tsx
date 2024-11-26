@@ -93,10 +93,10 @@ export const Header = () => {
                 boxSizing: "border-box",
               }}
             >
-              <div className="flex gap-2 items-center">
+              <Link href="/order" className="flex gap-2 items-center">
                 <LogInIcon />
                 Нэвтрэх
-              </div>
+              </Link>
             </Button>
           </div>
         </div>
