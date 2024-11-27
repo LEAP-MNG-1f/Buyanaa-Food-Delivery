@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import userRouter from "./routes/userRoute.js";
 
 mongoose.connect(
-  "mongodb+srv://ace12d192:wap3TZLOZeJlgLIq@cluster0.s6jvj.mongodb.net/food-delivery"
+  "mongodb+srv://Buyanaa:Heavenly8$@cluster0.kxb3o.mongodb.net//food-delivery"
 );
 const server = express();
 const PORT = 8000;
