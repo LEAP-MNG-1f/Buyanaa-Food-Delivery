@@ -1,209 +1,168 @@
 "use client";
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
+import { useState } from "react";
+import LocationIcon from "../svg/locationIcon";
+import { ArrowDown } from "../svg/arrowDown";
 
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import PlaceIcon from "@mui/icons-material/Place";
+const districts = [
+  "Баянзүрх дүүрэг",
+  "Хан-Уул дүүрэг",
+  "Баянгол дүүрэг",
+  "Сонгинохайрхан дүүрэг",
+  "Чингэлтэй дүүрэг",
+];
+
+const khoroos = [
+  "1-р хороо",
+  "2-р хороо",
+  "3-р хороо",
+  "4-р хороо",
+  "5-р хороо",
+  "6-р хороо",
+  "7-р хороо",
+];
+
+const apartments = [
+  "Нархан хотхон",
+  "26-р байр",
+  "Хоймор хотхон",
+  "45-р байр",
+  "Зайсан хотхон",
+];
 
 export default function AddressCard() {
-  const [age, setAge] = React.useState("");
+  const [district, setDistrict] = useState("");
+  const [khoroo, setKhoroo] = useState("");
+  const [apartment, setApartment] = useState("");
+  const [additionalInfo, setAdditionalInfo] = useState("");
+  const [phone, setPhone] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState({
+    cash: false,
+    card: false,
+  });
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
-  };
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        "& > :not(style)": {
-          m: 1,
-          width: 384,
-          height: 564,
-        },
-      }}
-    >
-      <Paper elevation={3} sx={{ borderRadius: "16px", padding: "24px" }}>
-        <div>
-          <p className="text-sm">Хаяг аа оруулна уу</p>
-          <FormControl
-            sx={{
-              m: 1,
-              minWidth: 384,
-              "& .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#ECEDF0", // Custom border color
-              },
-              backgroundColor: "#F7F7F8",
-              "&:hover .MuiOutlinedInput-notchedOutline": {
-                backgroundColor: "var(--green)", // Change border on hover
-              },
-              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                backgroundColor: "var(--green)", // Change border on focus
-              },
-            }}
-          >
-            <Select
-              value={age}
-              onChange={handleChange}
-              displayEmpty
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              <MenuItem value="">
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                <em>Дүүрэг сонгоно уу</em>
-              </MenuItem>
-              <MenuItem value={10}>
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                Баянзүрх дүүрэг
-              </MenuItem>
-              <MenuItem value={20}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                Хан-Уул дүүрэг
-              </MenuItem>
-              <MenuItem value={30}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                Баянгол дүүрэг
-              </MenuItem>
-              <MenuItem value={20}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                Сонгинохайрхан дүүрэг
-              </MenuItem>
-              <MenuItem value={30}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                Чингэлтэй дүүрэг
-              </MenuItem>
-            </Select>
-          </FormControl>
-          <FormControl
-            sx={{
-              m: 1,
-              minWidth: 384,
-              "& .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#ECEDF0", // Custom border color
-              },
-              backgroundColor: "#F7F7F8",
-              "&:hover .MuiOutlinedInput-notchedOutline": {
-                backgroundColor: "var(--green)", // Change border on hover
-              },
-              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                backgroundColor: "var(--green)", // Change border on focus
-              },
-            }}
-          >
-            <Select
-              value={age}
-              onChange={handleChange}
-              displayEmpty
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              <MenuItem value="">
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                <em>Хороо сонгоно уу</em>
-              </MenuItem>
-              <MenuItem value={10}>
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                1-р хороо
-              </MenuItem>
-              <MenuItem value={20}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                2-р хороо
-              </MenuItem>
-              <MenuItem value={30}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                3-р хороо
-              </MenuItem>
-              <MenuItem value={20}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                4-р хороо
-              </MenuItem>
-              <MenuItem value={30}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                5-р хороо
-              </MenuItem>
-              <MenuItem value={30}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                6-р хороо
-              </MenuItem>
-              <MenuItem value={30}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                7-р хороо
-              </MenuItem>
-            </Select>
-          </FormControl>
-          <FormControl
-            sx={{
-              m: 1,
-              minWidth: 384,
-              "& .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#ECEDF0", // Custom border color
-              },
-              backgroundColor: "#F7F7F8",
-              "&:hover .MuiOutlinedInput-notchedOutline": {
-                backgroundColor: "var(--green)", // Change border on hover
-              },
-              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                backgroundColor: "var(--green)", // Change border on focus
-              },
-            }}
-          >
-            <Select
-              value={age}
-              onChange={handleChange}
-              displayEmpty
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              <MenuItem value="">
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                <em>Байр, гудамж сонгоно уу</em>
-              </MenuItem>
-              <MenuItem value={10}>
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                Нархан хотхон
-              </MenuItem>
-              <MenuItem value={20}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                26-р байр
-              </MenuItem>
-              <MenuItem value={30}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                Хоймор хотхон
-              </MenuItem>
-              <MenuItem value={20}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                45-р байр
-              </MenuItem>
-              <MenuItem value={30}>
-                {" "}
-                <PlaceIcon sx={{ marginRight: 1 }} />
-                Зайсан хотхон
-              </MenuItem>
-            </Select>
-          </FormControl>
-          <textarea
-            className="h-[112px] px-4 py-2 text-[#F7F7F8]"
-            placeholder="Орц, давхар, орцны код ..."
-          />
-          <input type="text" placeholder="Утасны дугаараа оруулна уу" />
-          <input type="checkbox" />
+  function AddressSelect({ value, onChange, options, placeholder }) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOptionClick = (option) => {
+      onChange(option);
+      setIsOpen(false); // Close the menu after selection
+    };
+
+    return (
+      <div className="relative mb-4 ">
+        <LocationIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
+        <div
+          onClick={() => setIsOpen(!isOpen)}
+          className={`w-[384px] h-12 flex items-center pl-10 pr-4 bg-[#F7F7F8] border border-[#ECEDF0] rounded-md cursor-pointer
+            hover:bg-[var(--green)]`}
+        >
+          <ArrowDown />
+          {value || placeholder}
         </div>
-      </Paper>
-    </Box>
+        {isOpen && (
+          <div className="absolute z-10 w-full mt-1 bg-white border border-[#ECEDF0] rounded-md shadow-lg">
+            {options.map((option) => (
+              <div
+                key={option}
+                onClick={() => handleOptionClick(option)}
+                className="px-4 py-2 hover:bg-[var(--green)] cursor-pointer"
+              >
+                {option}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="p-6">
+      <div className="w-[432px] p-6 bg-white rounded-2xl shadow-lg">
+        <p className="text-sm pl-2 mb-6">Хаяг аа оруулна уу</p>
+
+        <div className="space-y-4">
+          <AddressSelect
+            placeholder="Дүүрэг сонгоно уу"
+            value={district}
+            onChange={setDistrict}
+            options={districts}
+          />
+
+          <AddressSelect
+            placeholder="Хороо сонгоно уу"
+            value={khoroo}
+            onChange={setKhoroo}
+            options={khoroos}
+          />
+
+          <AddressSelect
+            placeholder="Байр, гудамж сонгоно уу"
+            value={apartment}
+            onChange={setApartment}
+            options={apartments}
+          />
+        </div>
+
+        <div className="space-y-8 pt-10">
+          <div>
+            <p className="text-sm mb-1">Нэмэлт мэдээлэл</p>
+            <textarea
+              className="w-[384px] h-28 px-4 py-2 bg-[#F7F7F8] border border-[#ECEDF0] rounded-md
+                       focus:outline-none focus:ring-2 focus:ring-green-200"
+              placeholder="Орц, давхар, орцны код ..."
+              value={additionalInfo}
+              onChange={(e) => setAdditionalInfo(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <p className="mb-1">Утасны дугаар*</p>
+            <input
+              type="tel"
+              placeholder="Утасны дугаараа оруулна уу"
+              className="w-[384px] h-12 px-4 bg-[#F7F7F8] border border-[#ECEDF0] rounded-md
+                       focus:outline-none focus:ring-2 focus:ring-green-200"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <p className="mb-2">Төлбөр төлөх</p>
+            <div className="flex justify-between">
+              <label className="flex items-center gap-2 w-[176px]">
+                <input
+                  type="checkbox"
+                  checked={paymentMethod.cash}
+                  onChange={(e) =>
+                    setPaymentMethod((prev) => ({
+                      ...prev,
+                      cash: e.target.checked,
+                    }))
+                  }
+                  className="rounded"
+                />
+                <span className="text-[#8B8E95]">Бэлнээр</span>
+              </label>
+              <label className="flex items-center gap-2 w-[176px]">
+                <input
+                  type="checkbox"
+                  checked={paymentMethod.card}
+                  onChange={(e) =>
+                    setPaymentMethod((prev) => ({
+                      ...prev,
+                      card: e.target.checked,
+                    }))
+                  }
+                  className="rounded"
+                />
+                <span className="text-[#8B8E95]">Картаар</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
