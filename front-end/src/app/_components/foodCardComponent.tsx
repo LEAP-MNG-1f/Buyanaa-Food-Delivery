@@ -5,6 +5,7 @@ import { StarIcon } from "../svg/starIcon";
 import { Typography } from "@mui/material";
 import { RightArrow } from "../svg/rightArrow";
 import FoodCard from "./foodCard";
+import { TFoodArray } from "./Types";
 
 export type FoodCardType = {
   _id: string;
@@ -50,7 +51,7 @@ export const foodCardData: FoodCardType[] = [
   },
 ];
 
-export const FoodCardComponent = () => {
+export const FoodCardComponent = ({ foods }: TFoodArray) => {
   return (
     <div className=" h-full flex items-center flex-col gap-[80px]">
       <div className="w-[1200px] flex-wrap">
@@ -68,7 +69,7 @@ export const FoodCardComponent = () => {
                 <RightArrow />
               </button>
             </div>
-            <div className="flex justify-between !p-0">
+            {/* <div className="flex justify-between !p-0">
               {foodCardData.map((foodCard) => {
                 return (
                   <div key={foodCard._id}>
@@ -76,7 +77,7 @@ export const FoodCardComponent = () => {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
           </div>
           <div className="flex flex-col gap-6">
             <div className="flex justify-between">
@@ -91,53 +92,30 @@ export const FoodCardComponent = () => {
                 <RightArrow />
               </button>
             </div>
-            <div className="flex justify-between ">
+            {/* <div className="flex justify-between ">
               {foodCardData.map((foodCard) => {
                 return (
                   <div key={foodCard._id}>
                     <FoodCard foodCard={foodCard} />
                   </div>
                 );
-              })}
-            </div>
+              })} */}
           </div>
-          <div className="flex flex-col gap-6">
-            <div className="flex justify-between">
-              <div className="flex py-4 items-center gap-[6px]">
-                <StarIcon />
-                <Typography sx={{ fontWeight: 700, fontSize: 22 }}>
-                  Main Course
-                </Typography>
-              </div>
-              <button className="mt-4 text-[var(--green)] text-sm flex gap-2 items-center">
-                Бүгдийг харах
-                <RightArrow />
-              </button>
+        </div>
+        <div className="flex flex-col gap-6">
+          <div className="flex justify-between">
+            <div className="flex py-4 items-center gap-[6px]">
+              <StarIcon />
+              <Typography sx={{ fontWeight: 700, fontSize: 22 }}>
+                Main Course
+              </Typography>
             </div>
-            <div className="flex justify-between">
-              {foodCardData.map((foodCard) => {
-                return (
-                  <div key={foodCard._id}>
-                    <FoodCard foodCard={foodCard} />
-                  </div>
-                );
-              })}
-            </div>
+            <button className="mt-4 text-[var(--green)] text-sm flex gap-2 items-center">
+              Бүгдийг харах
+              <RightArrow />
+            </button>
           </div>
-          <div className="flex flex-col gap-6">
-            <div className="flex justify-between">
-              <div className="flex py-4 items-center gap-[6px]">
-                <StarIcon />
-                <Typography sx={{ fontWeight: 700, fontSize: 22 }}>
-                  Dessert
-                </Typography>
-              </div>
-              <button className="mt-4 text-[var(--green)] text-sm flex gap-2 items-center">
-                Бүгдийг харах
-                <RightArrow />
-              </button>
-            </div>
-            <div className="flex justify-between">
+          {/* <div className="flex justify-between">
               {foodCardData.map((foodCard) => {
                 return (
                   <div key={foodCard._id}>
@@ -145,7 +123,34 @@ export const FoodCardComponent = () => {
                   </div>
                 );
               })}
+            </div> */}
+        </div>
+        <div className="flex flex-col gap-6">
+          <div className="flex justify-between">
+            <div className="flex py-4 items-center gap-[6px]">
+              <StarIcon />
+              <Typography sx={{ fontWeight: 700, fontSize: 22 }}>
+                Dessert
+              </Typography>
             </div>
+            <button className="mt-4 text-[var(--green)] text-sm flex gap-2 items-center">
+              Бүгдийг харах
+              <RightArrow />
+            </button>
+          </div>
+          <div className="flex justify-between">
+            {foods.map((food) => {
+              return (
+                <div key={food._id}>
+                  <FoodCard
+                    image={food.image}
+                    name={food.name}
+                    price={food.price}
+                    ingredient={food.ingredient}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
