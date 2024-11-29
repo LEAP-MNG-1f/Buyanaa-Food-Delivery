@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { BACKEND_ENDPOINT } from "@/constants/constant";
 import AnchorTemporaryDrawer from "./_components/drawer";
@@ -12,15 +12,17 @@ import {
 } from "./_components/foodCardComponent";
 
 export default function Home() {
+  const [foods, setFoods] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await fetch(BACKEND_ENDPOINT);
+      const response = await fetch("http://localhost:8000/api/foods");
       const data = await response.json();
-      console.log(data);
+      setFoods(data.data);
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -30,7 +32,7 @@ export default function Home() {
       {/* <CustomizedDialogs /> */}
       <HeroHomePage />
       <DeliveryCardComponent />
-      <FoodCardComponent />
+      <FoodCardComponent foods={foods} />
     </div>
   );
 }

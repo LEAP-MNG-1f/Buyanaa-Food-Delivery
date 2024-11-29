@@ -10,6 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import { FoodCardListProps, FoodCardType } from "./foodCardComponent";
 import ShoppingCartDrawer from "./shoppingCartDrawer";
+import { TFoodObject } from "./Types";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {
@@ -33,7 +34,12 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   height: "auto",
 }));
 
-export default function FoodCard({ foodCard }: { foodCard: FoodCardType }) {
+export default function FoodCard({
+  image,
+  name,
+  ingredient,
+  price,
+}: TFoodObject) {
   const [open, setOpen] = React.useState(false);
   const [openDrawer, setOpenDrawer] = React.useState(false);
 
@@ -51,19 +57,19 @@ export default function FoodCard({ foodCard }: { foodCard: FoodCardType }) {
       <Button onClick={handleClickOpen} className="!p-0">
         <div className="w-[282px] ">
           <div className="h-[186px] rounded-2xl overflow-hidden shadow-xl">
-            <img src={foodCard.image} className="w-full h-full object-cover " />
+            <img src={image} className="w-full h-full object-cover " />
           </div>
 
           <div className="pt-[14px]">
             <p className="text-lg text-black text-start font-semibold">
-              {foodCard.name}
+              {name}
             </p>
             <div className="flex gap-4">
-              {foodCard.discount && (
-                <p className="text-[var(--green)]">{foodCard.discount}% OFF</p>
-              )}
+              {/* {food.discount && (
+                <p className="text-[var(--green)]">{food.discount}% OFF</p>
+              )} */}
               <p className="text-lg font-semibold text-[var(--green)]">
-                ₮ {foodCard.price}
+                ₮ {price}
               </p>
             </div>
           </div>
@@ -74,7 +80,7 @@ export default function FoodCard({ foodCard }: { foodCard: FoodCardType }) {
           <div className="max-w-[981px] max-h-[564px] flex justify-between p-4 rounded-[16px]">
             <div className="w-[500px] h-[500px]">
               <img
-                src={foodCard.image}
+                src={image}
                 alt=""
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
@@ -95,15 +101,15 @@ export default function FoodCard({ foodCard }: { foodCard: FoodCardType }) {
                 </IconButton>
                 <div className="flex flex-col gap-8 justify-center">
                   <div className="flex flex-col gap-[2px]">
-                    <p className="text-[28px] font-bold">{foodCard.name}</p>
+                    <p className="text-[28px] font-bold">{name}</p>
                     <p className="text-lg font-semibold text-[var(--green)]">
-                      ₮ {foodCard.price}
+                      ₮ {price}
                     </p>
                   </div>
                   <div className="flex flex-col gap-3">
                     <p className="text-lg font-semibold">Орц</p>
                     <p className="text-base font-normal text-[#767676]">
-                      Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын үр{" "}
+                      {ingredient}
                     </p>
                   </div>
                   <p className="text-lg font-semibold">Тоо</p>

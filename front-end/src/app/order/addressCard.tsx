@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import LocationIcon from "../svg/locationIcon";
 import { ArrowDown } from "../svg/arrowDown";
 
@@ -29,6 +29,12 @@ const apartments = [
   "Зайсан хотхон",
 ];
 
+interface AddressSelectProps {
+  value: string;
+  onChange: (value: string) => void;
+  options: string[];
+  placeholder: string;
+}
 export default function AddressCard() {
   const [district, setDistrict] = useState("");
   const [khoroo, setKhoroo] = useState("");
@@ -40,10 +46,15 @@ export default function AddressCard() {
     card: false,
   });
 
-  function AddressSelect({ value, onChange, options, placeholder }) {
+  function AddressSelect({
+    value,
+    onChange,
+    options,
+    placeholder,
+  }: AddressSelectProps) {
     const [isOpen, setIsOpen] = useState(false);
 
-    const handleOptionClick = (option) => {
+    const handleOptionClick = (option: string) => {
       onChange(option);
       setIsOpen(false); // Close the menu after selection
     };
