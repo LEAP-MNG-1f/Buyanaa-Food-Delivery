@@ -6,10 +6,7 @@ import AnchorTemporaryDrawer from "./_components/drawer";
 import { HeroHomePage } from "./_components/heroHomePage";
 import { DeliveryCardComponent } from "./_components/deliveryCardComponent";
 
-import {
-  FoodCardComponent,
-  foodCardData,
-} from "./_components/foodCardComponent";
+import { FoodCardComponent } from "./_components/foodCardComponent";
 
 export default function Home() {
   const [foods, setFoods] = useState([]);

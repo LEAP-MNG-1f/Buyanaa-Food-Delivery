@@ -3,12 +3,13 @@ import { Food } from "../model/food.model.js";
 const createFood = async (request, response) => {
   try {
     const result = await Food.create({
-      name: "Ice cream",
+      name: "Ravioli soup",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfQjS652_n-ybUhCTveqZw_Wrk4NCkRmygWg&s",
-      ingredient: "milk, sugar, strawberry, chocolate, vanilla",
-      price: "38000",
-      categoryId: "67492e78876259e0eed19171",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh9zMPBF-xuU7WY0NGnCjG8a87fisDy43txg&s",
+      ingredient:
+        "tomato, beef, onion, egg, flour, basil, ricotta cheese, parmesan cheese",
+      price: "58000",
+      categoryId: "674d11f3f62823c988745939",
     });
     response.json({ success: true, data: result });
   } catch (error) {

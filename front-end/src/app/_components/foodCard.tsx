@@ -8,7 +8,7 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import { FoodCardListProps, FoodCardType } from "./foodCardComponent";
+
 import ShoppingCartDrawer from "./shoppingCartDrawer";
 import { TFoodObject } from "./Types";
 
