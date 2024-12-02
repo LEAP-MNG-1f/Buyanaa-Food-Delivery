@@ -1,13 +1,6 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 
-import {
-  foodCardData,
-  FoodCardListProps,
-  FoodCardType,
-} from "../_components/foodCardComponent";
-import FoodCard from "../_components/foodCard";
-
 export const MenuCardComponent = () => {
   return (
     <div className="flex justify-center">
@@ -106,7 +99,7 @@ export const MenuCardComponent = () => {
           {foodCardData.map((foodCard) => {
             return (
               <div key={foodCard._id}>
-                <FoodCard foodCard={foodCard} />
+                {/* <FoodCard foodCard={foodCard} /> */}
               </div>
             );
           })}
