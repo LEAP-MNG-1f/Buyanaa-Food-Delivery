@@ -1,22 +1,36 @@
 "use client";
 import { createContext, ReactNode, useContext, useState } from "react";
 
-interface IStateContext {
+interface IFoodContext {
+  _id?: string;
+  _v?: string;
+  price: string;
+  name: string;
+  ingredient: string;
+  image: string;
+  categoryId?: string;
   quantity: number;
   onAdd: () => void;
 }
 
-const defaultStateContext = {
+const defaultFoodContext = {
+  _id: "",
+  _v: "",
+  price: "",
+  name: "",
+  ingredient: "",
+  image: "",
+  categoryId: "",
   quantity: 1,
   onAdd: () => {},
 };
-export const StateContext = createContext<IStateContext>(defaultStateContext);
+export const FoodContext = createContext<IFoodContext>(defaultFoodContext);
 
-interface IStateContextProvider {
+interface IFoodContextProvider {
   children: ReactNode;
 }
 
-export const StateContextProvider = ({ children }: IStateContextProvider) => {
+export const FoodContextProvider = ({ children }: IFoodContextProvider) => {
   const [quantity, setQuantity] = useState(0);
 
   const onAdd = () => {
@@ -27,9 +41,7 @@ export const StateContextProvider = ({ children }: IStateContextProvider) => {
     quantity,
     onAdd,
   };
-  return (
-    <StateContext.Provider value={values}>{children}</StateContext.Provider>
-  );
+  return <FoodContext.Provider value={values}>{children}</FoodContext.Provider>;
 };
 
-export const useStateContext = () => useContext(StateContext);
+export const useFoodContext = () => useContext(FoodContext);

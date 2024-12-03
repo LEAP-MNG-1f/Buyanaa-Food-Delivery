@@ -2,8 +2,8 @@
 import "./globals.css";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
-import { StateContextProvider } from "./context";
-import { useStateContext } from "./context";
+import { FoodContextProvider } from "./context";
+
 export default function RootLayout({
   children,
 }: {
@@ -12,10 +12,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StateContextProvider>
+        <FoodContextProvider>
           <Header />
           <div className="flex flex-col"> {children}</div>
-        </StateContextProvider>
+        </FoodContextProvider>
 
         <Footer />
       </body>
