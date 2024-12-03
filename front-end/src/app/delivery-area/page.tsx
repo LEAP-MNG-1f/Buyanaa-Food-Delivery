@@ -1,8 +1,12 @@
+"use client";
+import { useStateContext } from "../context";
 import { StarIcon } from "../svg/starIcon";
 import DeliveryCardA from "./deliveryCardA";
 import DeliveryCardB from "./deliveryCardB";
 
 export default function Page() {
+  const { quantity } = useStateContext();
+  console.log(quantity);
   return (
     <div className="flex justify-center">
       <div className="w-[1200px] py-14">
