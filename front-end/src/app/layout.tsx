@@ -1,7 +1,9 @@
+// "use client";
 import "./globals.css";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
-
+import { StateContextProvider } from "./context";
+import { useStateContext } from "./context";
 export default function RootLayout({
   children,
 }: {
@@ -10,8 +12,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <div className="flex flex-col"> {children}</div>
+        <StateContextProvider>
+          <Header />
+          <div className="flex flex-col"> {children}</div>
+        </StateContextProvider>
 
         <Footer />
       </body>
