@@ -36,7 +36,7 @@ interface AddressSelectProps {
   options: string[];
   placeholder: string;
 }
-export default function AddressCard() {
+export default function AddressCard({ setAddress }: { setAddress: void }) {
   const [district, setDistrict] = useState("");
   const [khoroo, setKhoroo] = useState("");
   const [apartment, setApartment] = useState("");

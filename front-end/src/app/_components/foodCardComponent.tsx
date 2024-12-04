@@ -14,9 +14,8 @@ export const FoodCardComponent = ({ foods }: TFoodArray) => {
   return (
     <div className=" h-full flex items-center flex-col gap-[80px]">
       <div className="w-[1200px] flex-wrap">
-        <div className="flex flex-col gap-20 pb-[82px]"></div>
         {Object.keys(groupedData).map((categoryName) => (
-          <div className="flex flex-col gap-6" key={uniqueId()}>
+          <div className="flex flex-col gap-6 pb-20" key={uniqueId()}>
             <div className="flex justify-between">
               <div className="flex py-4 items-center gap-[6px]">
                 <StarIcon />
