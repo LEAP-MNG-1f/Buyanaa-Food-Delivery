@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import LocationIcon from "../svg/locationIcon";
 import { ArrowDown } from "../svg/arrowDown";
-import { filledInputClasses } from "@mui/material";
+import { TOrderAddress } from "./page";
 
 const districts = [
   "Баянзүрх дүүрэг",
@@ -11,6 +11,10 @@ const districts = [
   "Сонгинохайрхан дүүрэг",
   "Чингэлтэй дүүрэг",
 ];
+
+type SetDatas = (
+  newData: TOrderAddress | ((prevData: TOrderAddress) => TOrderAddress)
+) => void;
 
 const khoroos = [
   "1-р хороо",
@@ -36,17 +40,13 @@ interface AddressSelectProps {
   options: string[];
   placeholder: string;
 }
-export default function AddressCard({ setAddress }: { setAddress: void }) {
-  const [district, setDistrict] = useState("");
-  const [khoroo, setKhoroo] = useState("");
-  const [apartment, setApartment] = useState("");
-  const [additionalInfo, setAdditionalInfo] = useState("");
-  const [phone, setPhone] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState({
-    cash: false,
-    card: false,
-  });
-
+export default function AddressCard({
+  datas,
+  setDatas,
+}: {
+  datas: TOrderAddress;
+  setDatas: SetDatas;
+}) {
   function AddressSelect({
     value,
     onChange,
@@ -98,22 +98,37 @@ export default function AddressCard({ setAddress }: { setAddress: void }) {
         <div className="space-y-4">
           <AddressSelect
             placeholder="Дүүрэг сонгоно уу"
-            value={district}
-            onChange={setDistrict}
+            value={datas.district}
+            onChange={(value) =>
+              setDatas((prevDatas) => ({
+                ...prevDatas,
+                district: value,
+              }))
+            }
             options={districts}
           />
 
           <AddressSelect
             placeholder="Хороо сонгоно уу"
-            value={khoroo}
-            onChange={setKhoroo}
+            value={datas.khoroo}
+            onChange={(value) =>
+              setDatas((prevDatas) => ({
+                ...prevDatas,
+                khoroo: value,
+              }))
+            }
             options={khoroos}
           />
 
           <AddressSelect
             placeholder="Байр, гудамж сонгоно уу"
-            value={apartment}
-            onChange={setApartment}
+            value={datas.apartment}
+            onChange={(value) =>
+              setDatas((prevDatas) => ({
+                ...prevDatas,
+                apartment: value,
+              }))
+            }
             options={apartments}
           />
         </div>
@@ -123,10 +138,15 @@ export default function AddressCard({ setAddress }: { setAddress: void }) {
             <p className="text-sm mb-1">Нэмэлт мэдээлэл</p>
             <textarea
               className="w-[384px] h-28 px-4 py-2 bg-[#F7F7F8] border border-[#ECEDF0] rounded-md
-                       focus:outline-none focus:ring-2 focus:ring-green-200"
+             focus:outline-none focus:ring-2 focus:ring-green-200"
               placeholder="Орц, давхар, орцны код ..."
-              value={additionalInfo}
-              onChange={(e) => setAdditionalInfo(e.target.value)}
+              value={datas.additionalInfo}
+              onChange={(e) =>
+                setDatas((prevDatas) => ({
+                  ...prevDatas,
+                  additionalInfo: e.target.value, // Use e.target.value to get the updated text
+                }))
+              }
             />
           </div>
 
@@ -137,8 +157,14 @@ export default function AddressCard({ setAddress }: { setAddress: void }) {
               placeholder="Утасны дугаараа оруулна уу"
               className="w-[384px] h-12 px-4 bg-[#F7F7F8] border border-[#ECEDF0] rounded-md
                        focus:outline-none focus:ring-2 focus:ring-green-200"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              value={datas.phone}
+              // onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) =>
+                setDatas((prevDatas) => ({
+                  ...prevDatas,
+                  phone: parseInt(e.target.value) || 0, // Use e.target.value to get the updated text
+                }))
+              }
             />
           </div>
 
@@ -148,11 +174,14 @@ export default function AddressCard({ setAddress }: { setAddress: void }) {
               <label className="flex items-center gap-2 w-[176px]">
                 <input
                   type="checkbox"
-                  checked={paymentMethod.cash}
+                  checked={datas.paymentMethod.cash} // Bind to cash boolean
                   onChange={(e) =>
-                    setPaymentMethod((prev) => ({
-                      ...prev,
-                      cash: e.target.checked,
+                    setDatas((prevDatas) => ({
+                      ...prevDatas,
+                      paymentMethod: {
+                        ...prevDatas.paymentMethod,
+                        cash: e.target.checked, // Update cash flag
+                      },
                     }))
                   }
                   className="rounded"
@@ -162,11 +191,14 @@ export default function AddressCard({ setAddress }: { setAddress: void }) {
               <label className="flex items-center gap-2 w-[176px]">
                 <input
                   type="checkbox"
-                  checked={paymentMethod.card}
+                  checked={datas.paymentMethod.card} // Bind to card boolean
                   onChange={(e) =>
-                    setPaymentMethod((prev) => ({
-                      ...prev,
-                      card: e.target.checked,
+                    setDatas((prevDatas) => ({
+                      ...prevDatas,
+                      paymentMethod: {
+                        ...prevDatas.paymentMethod,
+                        card: e.target.checked, // Update card flag
+                      },
                     }))
                   }
                   className="rounded"

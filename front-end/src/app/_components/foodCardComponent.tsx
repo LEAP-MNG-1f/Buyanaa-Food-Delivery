@@ -2,7 +2,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { StarIcon } from "../svg/starIcon";
-import { Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import { RightArrow } from "../svg/rightArrow";
 import FoodCard from "./foodCard";
 import { TFoodArray } from "./Types";
@@ -23,10 +23,12 @@ export const FoodCardComponent = ({ foods }: TFoodArray) => {
                   {categoryName}
                 </Typography>
               </div>
-              <button className="mt-4 text-[var(--green)] text-sm flex gap-2 items-center">
-                Бүгдийг харах
-                <RightArrow />
-              </button>
+              <Link href={"/menu"}>
+                <button className="mt-4 text-[var(--green)] text-sm flex gap-2 items-center">
+                  Бүгдийг харах
+                  <RightArrow />
+                </button>
+              </Link>
             </div>
             <div className="flex justify-between">
               {groupedData[categoryName]?.slice(0, 4).map((food) => {
