@@ -13,10 +13,37 @@ import MailIcon from "@mui/icons-material/Mail";
 import { ShoppingBagIcon } from "../svg/ShoppingBagIcon";
 import { LeftArrow } from "../svg/leftArrow";
 import { CloseIcon } from "../svg/closeIcon";
-
+import { useFoodContext } from "../context";
 // type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function ShoppingCartDrawer() {
+  const BACKEND_ENDPOINT = "http://localhost:8000/api/orders";
+
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();
+    console.log("ajilla");
+    const orderData = {
+      userId: "674921a9d9755e027fc120ae",
+      orderNumber: 1,
+      foodIds: "6749251594d68b5ee157a243",
+      totalPrice: 38000,
+      process: "Active",
+      district: "Баянгол дүүрэг",
+      Khoroo: "1-р хороо",
+      Apartment: "Зайсан хотхон",
+    };
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderData),
+    };
+    const response = await fetch(BACKEND_ENDPOINT, options);
+    const data = await response.json();
+    console.log(data);
+  };
+
+  const { cartFoods } = useFoodContext();
+
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (open: boolean) => {
@@ -44,52 +71,55 @@ export default function ShoppingCartDrawer() {
                 <LeftArrow />{" "}
                 <div className="text-lg font-semibold">Таны сагс</div>
               </div>
-
-              <div className=" border-t-[1px] border-b-[1px] border-[#D6D8DB] py-6 flex">
-                <div className="flex p-4 gap-5">
-                  <div className="w-[245px] h-[150px]">
-                    <img
-                      src={"/smoothieBowl.png"}
-                      alt=""
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                      }}
-                    />
-                  </div>
-                  <div className="flex flex-col w-[245px] h-[150px] gap-2 justify-center">
-                    <div className="flex gap-[60px]">
-                      <div className="flex flex-col gap-[2px]">
-                        <p className="text-[18px] font-semibold">
-                          Healthy Bowl
-                        </p>
-                        <p className="text-[18px] font-semibold text-[var(--green)]">
-                          ₮ 38800
-                        </p>
+              {cartFoods.map((cartFood) => {
+                return (
+                  <div className=" border-t-[1px] border-b-[1px] border-[#D6D8DB] py-6 flex">
+                    <div className="flex p-4 gap-5">
+                      <div className="w-[245px] h-[150px]">
+                        <img
+                          src={cartFood.image}
+                          alt=""
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
+                        />
                       </div>
-                      <button className="flex items-start mt-2">
-                        <CloseIcon />
-                      </button>
-                    </div>
+                      <div className="flex flex-col w-[245px] h-[150px] gap-2 justify-center">
+                        <div className="flex gap-[60px]">
+                          <div className="flex flex-col gap-[2px]">
+                            <p className="text-[18px] font-semibold">
+                              {cartFood?.name}
+                            </p>
+                            <p className="text-[18px] font-semibold text-[var(--green)]">
+                              ₮ {cartFood?.price}
+                            </p>
+                          </div>
+                          <button className="flex items-start mt-2">
+                            <CloseIcon />
+                          </button>
+                        </div>
 
-                    <div className="flex flex-col gap-3">
-                      <p className="text-sm font-normal text-[#767676]">
-                        Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын үр{" "}
-                      </p>
-                    </div>
-                    <div className="flex gap-[8px] justify-start">
-                      <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
-                        -
-                      </button>
-                      <div className="flex items-center px-[18px]">1</div>
-                      <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
-                        +
-                      </button>
+                        <div className="flex flex-col gap-3">
+                          <p className="text-sm font-normal text-[#767676]">
+                            {cartFood.ingredient}
+                          </p>
+                        </div>
+                        <div className="flex gap-[8px] justify-start">
+                          <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
+                            -
+                          </button>
+                          <div className="flex items-center px-[18px]">1</div>
+                          <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
+                            +
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
             <div className="min-h-[172px] border-t-[1px] border-[#D6D8DB] flex justify-between items-center">
               <div className="">
@@ -101,7 +131,7 @@ export default function ShoppingCartDrawer() {
               <Button
                 autoFocus
                 variant="contained"
-                onClick={() => toggleDrawer(false)}
+                onClick={handleOnSubmit}
                 sx={{
                   width: "256px",
                   height: "48px",
@@ -109,6 +139,7 @@ export default function ShoppingCartDrawer() {
                   fontSize: "16px",
                   fontWeight: "400",
                 }}
+                // onSubmit={handleOnSubmit}
               >
                 Захиалах
               </Button>

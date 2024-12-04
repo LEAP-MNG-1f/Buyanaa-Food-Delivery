@@ -2,14 +2,13 @@
 import { useState, useEffect, useContext } from "react";
 
 import { BACKEND_ENDPOINT } from "@/constants/constant";
-import AnchorTemporaryDrawer from "./_components/drawer";
+
 import { HeroHomePage } from "./_components/heroHomePage";
 import { DeliveryCardComponent } from "./_components/deliveryCardComponent";
-import { useFoodContext } from "./context";
+
 import { FoodCardComponent } from "./_components/foodCardComponent";
 
 export default function Home() {
-  const { quantity, onAdd } = useFoodContext();
   const [foods, setFoods] = useState([]);
   const fetchData = async () => {
     try {
@@ -30,8 +29,6 @@ export default function Home() {
       <HeroHomePage />
       <DeliveryCardComponent />
       <FoodCardComponent foods={foods} />
-      <p>{quantity}</p>
-      <button onClick={onAdd}>click me</button>
 
       {/* <CustomizedDialogs /> */}
     </div>
