@@ -52,9 +52,9 @@ export default function FoodCard({ food }: { food: TFoodObject }) {
     setCartFoods((prevFoods) => [...prevFoods, food]);
     setOpen(false);
   };
-  const toggleDrawer = (open: boolean) => {
-    setOpenDrawer(open);
-  };
+  // const toggleDrawer = (open: boolean) => {
+  //   setOpenDrawer(open);
+  // };
   return (
     <div>
       <Button onClick={handleClickOpen} className="!p-0">

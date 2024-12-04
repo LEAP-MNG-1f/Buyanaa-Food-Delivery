@@ -14,12 +14,14 @@ import { ShoppingBagIcon } from "../svg/ShoppingBagIcon";
 import { LeftArrow } from "../svg/leftArrow";
 import { CloseIcon } from "../svg/closeIcon";
 import { useFoodContext } from "../context";
+import { useRouter } from "next/navigation";
 // type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function ShoppingCartDrawer() {
   const BACKEND_ENDPOINT = "http://localhost:8000/api/orders";
+  const router = useRouter();
 
-  const handleOnSubmit = async (event) => {
+  const handleOnSubmit = async (event: any) => {
     event.preventDefault();
     console.log("ajilla");
     const orderData = {
@@ -39,6 +41,7 @@ export default function ShoppingCartDrawer() {
     };
     const response = await fetch(BACKEND_ENDPOINT, options);
     const data = await response.json();
+    router.push("/order");
     console.log(data);
   };
 

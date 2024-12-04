@@ -29,8 +29,6 @@ export default function Home() {
       <HeroHomePage />
       <DeliveryCardComponent />
       <FoodCardComponent foods={foods} />
-
-      {/* <CustomizedDialogs /> */}
     </div>
   );
 }
