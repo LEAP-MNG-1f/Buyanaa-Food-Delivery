@@ -1,15 +1,41 @@
 import { useFoodContext } from "../context";
 import { ShoppingBagIcon } from "../svg/ShoppingBagIcon";
+import { TOrderAddress } from "./page";
 
-export default function OrderCard({ address }: { address: void }) {
+const OrderCard = ({ datas }: { datas: TOrderAddress }) => {
   const { cartFoods } = useFoodContext();
+  // const { orders } = useFoodContext();
+  const BACKEND_ENDPOINT = "http://localhost:8000/api/orders";
 
+  const handleOnSubmit = async (event: any) => {
+    event.preventDefault();
+    const orderData = {
+      userId: "674921a9d9755e027fc120ae",
+      orderNumber: 1,
+      foodIds: "674d235586b384d8258efa5c",
+      totalPrice: 38000,
+      process: "Active",
+      district: datas.district,
+      Khoroo: datas.khoroo,
+      Apartment: datas.apartment,
+    };
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderData),
+    };
+    const response = await fetch(BACKEND_ENDPOINT, options);
+    const data = await response.json();
+  };
   return (
     <div className="w-[432px] p-6 h-[612px] bg-white rounded-2xl shadow-lg">
       <div className="flex flex-col justify-between h-full">
         {cartFoods.map((cartFood) => {
           return (
-            <div className=" border-t-[1px] border-b-[1px] border-[#D6D8DB] py-4 flex">
+            <div
+              key={cartFood._id}
+              className=" border-t-[1px] border-b-[1px] border-[#D6D8DB] py-4 flex"
+            >
               <div className="flex gap-5">
                 <div className="w-[184px] h-[121px]">
                   <img
@@ -45,11 +71,16 @@ export default function OrderCard({ address }: { address: void }) {
             <p className="text-lg font-normal text-[#5E6166]">Нийт төлөх дүн</p>
             <p className="text-lg font-bold text-[#121316]">34,800₮</p>
           </div>
-          <button className="w-[187px] h-12  bg-[#EEEFF2] hover:bg-[var(--green)] text-[#1C20243D] hover:text-white rounded-[4px] text-base font-normal">
+          <button
+            onClick={handleOnSubmit}
+            className="w-[187px] h-12  bg-[#EEEFF2] hover:bg-[var(--green)] text-[#1C20243D] hover:text-white rounded-[4px] text-base font-normal"
+          >
             Захиалах
           </button>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default OrderCard;

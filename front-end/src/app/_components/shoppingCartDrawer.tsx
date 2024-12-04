@@ -18,31 +18,11 @@ import { useRouter } from "next/navigation";
 // type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function ShoppingCartDrawer() {
-  const BACKEND_ENDPOINT = "http://localhost:8000/api/orders";
   const router = useRouter();
 
-  const handleOnSubmit = async (event: any) => {
+  const handleOrder = async (event: any) => {
     event.preventDefault();
-    console.log("ajilla");
-    const orderData = {
-      userId: "674921a9d9755e027fc120ae",
-      orderNumber: 1,
-      foodIds: "6749251594d68b5ee157a243",
-      totalPrice: 38000,
-      process: "Active",
-      district: "Баянгол дүүрэг",
-      Khoroo: "1-р хороо",
-      Apartment: "Зайсан хотхон",
-    };
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(orderData),
-    };
-    const response = await fetch(BACKEND_ENDPOINT, options);
-    const data = await response.json();
     router.push("/order");
-    console.log(data);
   };
 
   const { cartFoods } = useFoodContext();
@@ -76,7 +56,10 @@ export default function ShoppingCartDrawer() {
               </div>
               {cartFoods.map((cartFood) => {
                 return (
-                  <div className=" border-t-[1px] border-b-[1px] border-[#D6D8DB] py-6 flex">
+                  <div
+                    key={cartFood._id}
+                    className=" border-t-[1px] border-b-[1px] border-[#D6D8DB] py-6 flex"
+                  >
                     <div className="flex p-4 gap-5">
                       <div className="w-[245px] h-[150px]">
                         <img
@@ -134,7 +117,7 @@ export default function ShoppingCartDrawer() {
               <Button
                 autoFocus
                 variant="contained"
-                onClick={handleOnSubmit}
+                onClick={handleOrder}
                 sx={{
                   width: "256px",
                   height: "48px",

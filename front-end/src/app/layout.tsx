@@ -4,6 +4,7 @@ import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
 import { FoodContextProvider, useFoodContext } from "./context";
 import { useEffect, useState } from "react";
+import { OrderContextProvider } from "./orderContext";
 
 export default function RootLayout({
   children,
@@ -14,8 +15,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <FoodContextProvider>
-          <Header />
-          <div className="flex flex-col"> {children}</div>
+          <OrderContextProvider>
+            <Header />
+            <div className="flex flex-col"> {children}</div>
+          </OrderContextProvider>
         </FoodContextProvider>
 
         <Footer />
