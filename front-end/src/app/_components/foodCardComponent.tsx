@@ -30,15 +30,10 @@ export const FoodCardComponent = ({ foods }: TFoodArray) => {
               </button>
             </div>
             <div className="flex justify-between">
-              {groupedData[categoryName]?.map((food) => {
+              {groupedData[categoryName]?.slice(0, 4).map((food) => {
                 return (
                   <div key={food._id}>
-                    <FoodCard
-                      image={food.image}
-                      name={food.name}
-                      price={food.price}
-                      ingredient={food.ingredient}
-                    />
+                    <FoodCard food={food} />
                   </div>
                 );
               })}

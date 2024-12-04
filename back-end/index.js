@@ -5,11 +5,13 @@ import userRouter from "./routes/user.route.js";
 import foodRouter from "./routes/food.route.js";
 import categoryRouter from "./routes/category.route.js";
 import orderRouter from "./routes/order.route.js";
+import bodyParser from "body-parser";
 
 mongoose.connect(
   "mongodb+srv://Buyanaa:Heavenly8$@cluster0.kxb3o.mongodb.net/food-delivery"
 );
 const server = express();
+server.use(bodyParser.json());
 const PORT = 8000;
 server.use(cors());
 server.use("/api", userRouter);

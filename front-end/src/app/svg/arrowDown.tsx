@@ -1,4 +1,4 @@
-export const ArrowDown = () => {
+export const ArrowDown = ({ fill = "white" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,7 @@ export const ArrowDown = () => {
       <g mask="url(#mask0_3923_13081)">
         <path
           d="M2 8.025L3.775 6.25L12 14.475L20.225 6.25L22 8.025L12 18.025L2 8.025Z"
-          fill="white"
+          fill={fill}
         />
       </g>
     </svg>

@@ -8,7 +8,7 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-
+import { useFoodContext } from "../context";
 import ShoppingCartDrawer from "./shoppingCartDrawer";
 import { TFoodObject } from "./Types";
 
@@ -34,19 +34,22 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   height: "auto",
 }));
 
-export default function FoodCard({
-  image,
-  name,
-  ingredient,
-  price,
-}: TFoodObject) {
+export default function FoodCard({ food }: { food: TFoodObject }) {
   const [open, setOpen] = React.useState(false);
   const [openDrawer, setOpenDrawer] = React.useState(false);
+  const { setCartFoods, onAdd, quantity } = useFoodContext();
+
+  const { image, name, price, ingredient } = food;
 
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleAddToCart = () => {
+    setCartFoods((prevFoods) => [...prevFoods, food]);
     setOpen(false);
   };
   const toggleDrawer = (open: boolean) => {
@@ -118,16 +121,19 @@ export default function FoodCard({
                       -
                     </button>
                     <div className="w-full flex justify-center items-center">
-                      1
+                      {quantity}
                     </div>
-                    <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
+                    <button
+                      className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]"
+                      onClick={onAdd}
+                    >
                       +
                     </button>
                   </div>
                   <Button
                     autoFocus
                     variant="contained"
-                    onClick={handleClose}
+                    onClick={handleAddToCart}
                     sx={{
                       backgroundColor: "var(--green)",
                       fontSize: "14px",
