@@ -49,7 +49,10 @@ export default function FoodCard({ food }: { food: TFoodObject }) {
   };
 
   const handleAddToCart = () => {
-    setCartFoods((prevFoods) => [...prevFoods, food]);
+    setCartFoods((prevFoods) => [
+      ...prevFoods,
+      { ...food, quantity: quantity },
+    ]);
     setOpen(false);
   };
   // const toggleDrawer = (open: boolean) => {

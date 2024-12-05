@@ -1,7 +1,7 @@
 import { Order } from "../model/order.model.js";
 
 const createOrder = async (request, response) => {
-  console.log(request.body);
+  console.log(request.body, "shineer irsen data");
 
   try {
     const result = await Order.create(request.body);

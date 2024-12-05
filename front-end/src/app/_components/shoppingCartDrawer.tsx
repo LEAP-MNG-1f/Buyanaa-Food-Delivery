@@ -27,6 +27,8 @@ export default function ShoppingCartDrawer() {
 
   const { cartFoods } = useFoodContext();
 
+  console.log(cartFoods);
+
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (open: boolean) => {
@@ -93,13 +95,16 @@ export default function ShoppingCartDrawer() {
                           </p>
                         </div>
                         <div className="flex gap-[8px] justify-start">
-                          <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
+                          {/* <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
                             -
-                          </button>
-                          <div className="flex items-center px-[18px]">1</div>
-                          <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
+                          </button> */}
+                          <div className="flex items-center px-[18px]">
+                            {" "}
+                            {cartFood?.quantity}
+                          </div>
+                          {/* <button className="w-[45px] h-[40px] bg-[var(--green)] text-white rounded-[10px] text-sm font-black px-[10px]">
                             +
-                          </button>
+                          </button> */}
                         </div>
                       </div>
                     </div>
