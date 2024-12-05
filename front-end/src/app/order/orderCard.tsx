@@ -4,16 +4,22 @@ import { TOrderAddress } from "./page";
 
 const OrderCard = ({ datas }: { datas: TOrderAddress }) => {
   const { cartFoods } = useFoodContext();
+  console.log("cartfood", cartFoods);
   // const { orders } = useFoodContext();
   const BACKEND_ENDPOINT = "http://localhost:8000/api/orders";
+
+  [
+    { name: "dashka", age: 123 },
+    { name: "test", age: 123 },
+  ];
 
   const handleOnSubmit = async (event: any) => {
     event.preventDefault();
     const orderData = {
       userId: "674921a9d9755e027fc120ae",
       orderNumber: 1,
-      foodIds: "674d235586b384d8258efa5c",
-      totalPrice: 38000,
+      foodIds: cartFoods[0]._id,
+      totalPrice: cartFoods[0].price,
       process: "Active",
       district: datas.district,
       Khoroo: datas.khoroo,
@@ -51,7 +57,9 @@ const OrderCard = ({ datas }: { datas: TOrderAddress }) => {
                 <div className="flex flex-col w-[184px] h-[121px] gap-2 justify-center">
                   <div className="flex gap-[60px]">
                     <div className="flex flex-col gap-[2px]">
-                      <p className="text-[18px] font-semibold">Healthy Bowl</p>
+                      <p className="text-[18px] font-semibold">
+                        {cartFood.name}
+                      </p>
                       <p className="text-[18px] font-semibold text-[var(--green)]">
                         ₮ {cartFood.price}
                       </p>

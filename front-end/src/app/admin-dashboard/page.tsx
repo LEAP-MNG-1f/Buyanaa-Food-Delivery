@@ -1,4 +1,5 @@
 "use client";
+import { uniqueId } from "lodash";
 import { useEffect, useState } from "react";
 
 export default function Page() {
@@ -17,6 +18,7 @@ export default function Page() {
   useEffect(() => {
     fetchData();
   }, []);
+
   return (
     <div className="flex justify-center">
       <div className="p-6 w-[1024px] mt-6">
@@ -37,7 +39,7 @@ export default function Page() {
                   key={order._id}
                   className="grid grid-cols-5 gap-4 p-4 hover:bg-gray-50"
                 >
-                  <div space-y-1 className="p-6 flex">
+                  <div className="p-6 flex">
                     <img
                       src="/breakfastBurrito.png"
                       className="w-10 h-10 rounded-[4px]"
@@ -45,13 +47,12 @@ export default function Page() {
                     />
                     <div>
                       <p>{order?._id}</p>
-                      <p>{order?.foodIds}</p>
+                      {order?.foodIds?.map((food) => {
+                        return <p key={uniqueId()}>{food?.name}</p>;
+                      })}
                     </div>
                   </div>
-                  <div space-y-1 className="p-6">
-                    <p>Phone</p>
-                    <p>Name</p>
-                  </div>
+
                   <div className="flex p-6">
                     <div>
                       <p>{order.price}</p>
@@ -72,7 +73,7 @@ export default function Page() {
                       </span>
                     </div>
                   </div>
-                  <div space-y-1 className="p-6">
+                  <div className="p-6">
                     <p>{order.district}</p>
                     <p>{order.Khoroo}</p>
                     <p>{order.Apartment}</p>

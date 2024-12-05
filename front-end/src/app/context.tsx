@@ -7,7 +7,23 @@ import {
   useContext,
   useState,
 } from "react";
-import { TFoodObject } from "./_components/Types";
+
+export type TCategoryId = {
+  name: string;
+  _id: string;
+  _v: number;
+};
+
+export type TFoodObject = {
+  _id?: string;
+  _v?: string;
+  price: string;
+  name: string;
+  ingredient: string;
+  image: string;
+  categoryId?: TCategoryId;
+  quantity?: number;
+};
 
 interface IFoodContext {
   cartFoods: TFoodObject[];
