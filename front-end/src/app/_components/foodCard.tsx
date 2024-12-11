@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
@@ -7,10 +7,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import Typography from "@mui/material/Typography";
+
 import { useFoodContext } from "../context";
-import ShoppingCartDrawer from "./shoppingCartDrawer";
+
 import { TFoodObject } from "./Types";
+import { find, findIndex, includes } from "lodash";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {
@@ -37,7 +38,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 export default function FoodCard({ food }: { food: TFoodObject }) {
   const [open, setOpen] = React.useState(false);
   const [openDrawer, setOpenDrawer] = React.useState(false);
-  const { setCartFoods, onAdd, quantity } = useFoodContext();
+  const { setCartFoods, onAdd, quantity, cartFoods } = useFoodContext();
 
   const { image, name, price, ingredient } = food;
 
@@ -49,10 +50,30 @@ export default function FoodCard({ food }: { food: TFoodObject }) {
   };
 
   const handleAddToCart = () => {
-    setCartFoods((prevFoods) => [
-      ...prevFoods,
-      { ...food, quantity: quantity },
-    ]);
+    const isAvailableFoodInCart = find(
+      cartFoods,
+      (cartfood: TFoodObject) => cartfood?._id === food._id
+    );
+
+    if (isAvailableFoodInCart) {
+      setCartFoods((prevFoods) =>
+        prevFoods.map((prevFood) => {
+          if (isAvailableFoodInCart) {
+            return {
+              ...prevFood,
+              quantity: prevFood?.quantity + quantity,
+            };
+          }
+          return prevFood;
+        })
+      );
+    } else {
+      setCartFoods((prevFoods) => [
+        ...prevFoods,
+        { ...food, quantity: quantity },
+      ]);
+    }
+
     setOpen(false);
   };
   // const toggleDrawer = (open: boolean) => {

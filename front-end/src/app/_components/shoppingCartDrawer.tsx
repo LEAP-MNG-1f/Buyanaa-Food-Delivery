@@ -25,9 +25,7 @@ export default function ShoppingCartDrawer() {
     router.push("/order");
   };
 
-  const { cartFoods } = useFoodContext();
-
-  console.log(cartFoods);
+  const { cartFoods, totalPrice } = useFoodContext();
 
   const [open, setOpen] = React.useState(false);
 
@@ -117,7 +115,9 @@ export default function ShoppingCartDrawer() {
                 <p className="text-lg font-normal text-[#5E6166]">
                   Нийт төлөх дүн
                 </p>
-                <p className="text-lg font-bold text-[#121316]">34,800₮</p>
+                <p className="text-lg font-bold text-[#121316]">
+                  {totalPrice}₮
+                </p>
               </div>
               <Button
                 autoFocus
