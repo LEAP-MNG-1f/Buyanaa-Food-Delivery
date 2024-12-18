@@ -71,10 +71,7 @@ export default function FoodCard({ food }: { food: TFoodObject }) {
   };
 
   const handleAddToCart = () => {
-    setCartFoods((prevFoods) => [
-      ...prevFoods,
-      { ...food, quantity: quantity },
-    ]);
+    setCartFoods((prevFoods) => [...prevFoods, food]);
     setOpen(false);
   };
 
