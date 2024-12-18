@@ -21,7 +21,7 @@ export default function RootLayout({
           </OrderContextProvider>
         </FoodContextProvider>
 
-        <Footer />
+        <Footer /> 
       </body>
     </html>
   );

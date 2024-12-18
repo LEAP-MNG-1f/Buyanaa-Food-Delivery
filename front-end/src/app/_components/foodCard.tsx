@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import { useFoodContext } from "../context";
 import ShoppingCartDrawer from "./shoppingCartDrawer";
 import { TFoodObject } from "./Types";
+import { set } from "lodash";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {
@@ -37,9 +38,30 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 export default function FoodCard({ food }: { food: TFoodObject }) {
   const [open, setOpen] = React.useState(false);
   const [openDrawer, setOpenDrawer] = React.useState(false);
-  const { setCartFoods, onAdd, quantity } = useFoodContext();
+  const { cartFoods, setCartFoods, onAdd, quantity } = useFoodContext();
 
   const { image, name, price, ingredient } = food;
+
+  useEffect(() => {
+    const storage = window.localStorage.getItem("cart-foods");
+    if (storage) {
+      try {
+        const parsedStorage = JSON.parse(storage);
+        setCartFoods(parsedStorage);
+      } catch (error) {
+        console.error("Error parsing cart data", error);
+        setCartFoods([]);
+      }
+    } else {
+      setCartFoods([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (cartFoods && cartFoods.length > 0) {
+      window.localStorage.setItem("cart-foods", JSON.stringify(cartFoods));
+    }
+  }, [cartFoods]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -55,6 +77,7 @@ export default function FoodCard({ food }: { food: TFoodObject }) {
     ]);
     setOpen(false);
   };
+
   // const toggleDrawer = (open: boolean) => {
   //   setOpenDrawer(open);
   // };
